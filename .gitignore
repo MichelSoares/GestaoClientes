@@ -1,0 +1,57 @@
+# Build artifacts
+bin/
+obj/
+
+# User-specific files
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Package dependencies
+packages/
+*.nupkg
+project.lock.json
+
+# Visual Studio settings
+.vs/
+
+# Rider settings
+.idea/
+
+# Resharper settings
+*.DotSettings.user
+
+# NuGet
+.nuget/
+
+# Entity Framework migrations
+Migrations/
+
+# Local development files
+appsettings.Development.json
+secrets.json
+
+# WPF specific
+*.pdb
+*.exe
+*.ilk
+*.obj
+*.cache
+*.resources
+
+# API specific
+Properties/launchSettings.json
+
+# Class Library specific (kept general for all projects)
+*.dll
+*.pdb
+*.xml
+
+# JetBrains Rider
+.idea/
+*.sln.iml
