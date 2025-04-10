@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver_gestaoclientes
+    environment:
+      SA_PASSWORD: "dev#appgestao202134"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1499:1433"
+    volumes:
+      - sqlvolume:/var/opt/mssql
+    networks:
+      - gestao_net
+
+  api:
+    build:
+      context: .
+      dockerfile: GestaoClientes.API/Dockerfile
+    container_name: api_gestaoclientes
+    ports:
+      - "5000:80"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+    depends_on:
+      - sqlserver
+    networks:
+      - gestao_net
+
+volumes:
+  sqlvolume:
+
+networks:
+  gestao_net:

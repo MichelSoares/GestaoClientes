@@ -1,8 +1,5 @@
-﻿using GestaoClientes.APP.DTOs;
-using GestaoClientes.APP.Services;
+﻿using GestaoClientes.APP.Services;
 using GestaoClientes.APP.ViewModels;
-using GestaoClientes.Domain.Entidades;
-using GestaoClientes.Domain.Enums;
 using System.Windows;
 using System.Windows.Controls;
 

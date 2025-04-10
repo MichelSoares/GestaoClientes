@@ -1,4 +1,4 @@
---Prova remota - CAPTA Tecnologia (12/03/2025)
+-----
 
 CREATE TABLE TipoCliente (
     Id INT PRIMARY KEY,
@@ -39,11 +39,3 @@ CREATE TABLE Cliente (
 );
 
 -----------------------------------------------
-
----endpoint /ListarClientes (já retornando JSON), 
-SELECT c.CPF, c.Nome, c.SexoId AS Sexo,
-    JSON_QUERY((SELECT tc.Id, tc.Descricao FOR JSON PATH, WITHOUT_ARRAY_WRAPPER)) AS TipoCliente,
-    JSON_QUERY((SELECT sc.Id, sc.Descricao FOR JSON PATH, WITHOUT_ARRAY_WRAPPER)) AS SituacaoCliente FROM Cliente c
-JOIN TipoCliente tc ON c.TipoClienteId = tc.Id
-JOIN SituacaoCliente sc ON c.SituacaoClienteId = sc.Id
-FOR JSON PATH;
