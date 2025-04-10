@@ -14,13 +14,14 @@ services:
       - ./scripts:/scripts
     networks:
       - gestao_net
-    entrypoint: /bin/bash -c "
-      /opt/mssql/bin/sqlservr & 
-      sleep 20 && 
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'dev#appgestao202134' -Q 'IF DB_ID('GestaoClientes') IS NULL CREATE DATABASE GestaoClientes' &&
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'dev#appgestao202134' -d GestaoClientes -i /scripts/sql_gestao_clientes.sql &&
-      wait
-    "
+    command: >
+      /bin/bash -c "
+        /opt/mssql/bin/sqlservr & 
+        sleep 15 && 
+        /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'dev#appgestao202134' -Q 'CREATE DATABASE GestaoClientes' &&
+        /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'dev#appgestao202134' -d GestaoClientes -i /scripts/sql_gestao_clientes.sql &&
+        tail -f /dev/null
+      "
 
   api:
     build:
