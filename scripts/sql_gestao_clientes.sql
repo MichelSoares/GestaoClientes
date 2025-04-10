@@ -1,4 +1,24 @@
 -----
+--atualizacao com user 'michel'
+USE master;
+GO
+
+CREATE LOGIN michel WITH PASSWORD = 'dev#appgestao202134';
+GO
+
+CREATE DATABASE GestaoClientes;
+GO
+
+USE GestaoClientes;
+GO
+
+CREATE USER michel FOR LOGIN michel;
+GO
+
+ALTER ROLE db_owner ADD MEMBER michel;
+GO
+
+-----
 
 CREATE TABLE TipoCliente (
     Id INT PRIMARY KEY,

@@ -14,7 +14,16 @@ services:
       - ./scripts:/scripts
     networks:
       - gestao_net
-    entrypoint: ["/bin/bash", "/scripts/entrypoint.sh"]
+
+  sqlcmd-runner:
+    image: mcr.microsoft.com/mssql-tools
+    depends_on:
+      - sqlserver
+    volumes:
+      - ./scripts:/scripts
+    entrypoint: [ "/bin/bash", "-c", "/scripts/entrypoint.sh" ]
+    networks:
+      - gestao_net
 
   api:
     build:
@@ -22,7 +31,7 @@ services:
       dockerfile: GestaoClientes.API/Dockerfile
     container_name: api_gestaoclientes
     ports:
-      - "5000:80"
+      - "5231:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
     depends_on:
