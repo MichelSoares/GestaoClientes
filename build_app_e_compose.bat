@@ -6,7 +6,7 @@ git config --global core.autocrlf false
 echo.
 echo =======================================
 echo Convertendo arquivos .sh para LF...
-powershell -Command "Get-ChildItem -Path ./scripts -Filter *.sh -Recurse | ForEach-Object { (Get-Content $_.FullName) -join \"`n\" | Set-Content -Encoding ascii $_.FullName }"
+powershell -Command "Get-ChildItem -Path './scripts' -Filter *.sh -Recurse | ForEach-Object { (Get-Content $_.FullName) -join \"`n\" | Set-Content -Encoding Ascii $_.FullName }"
 
 echo.
 echo =======================================
@@ -16,7 +16,7 @@ dotnet build
 
 echo.
 echo =======================================
-echo executando compose
+echo Subindo containers com Docker Compose...
 cd /d "%~dp0"
 docker-compose up --build
 

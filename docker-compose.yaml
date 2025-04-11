@@ -21,7 +21,7 @@ services:
       - sqlserver
     volumes:
       - ./scripts:/scripts
-    entrypoint: [ "/bin/bash", "-c", "/scripts/entrypoint.sh" ]
+    entrypoint: [ "/bin/bash", "-c", "chmod +x /scripts/entrypoint.sh && /scripts/entrypoint.sh" ]
     networks:
       - gestao_net
 
