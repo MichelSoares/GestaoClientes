@@ -79,7 +79,7 @@ GestaoClientes/
 ├── GestaoClientes.APP      # Aplicação WPF (interface)
 ├── GestaoClientes.API      # API REST .NET
 ├── GestaoClientes.Domain   # Camada de domínio (entidades, interfaces)
-├── GestaoClientes.Infra    # Camada de infraestrutura (EF Core)
+├── GestaoClientes.Infra    # Camada de infraestrutura (acesso a dados com ADO.NET)
 ├── scripts/                # Scripts de banco (SQL + shell)
 └── build_app_e_compose.bat # Script automatizado de build + docker
 ```
